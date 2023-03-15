@@ -9,10 +9,10 @@ load_dot_env()
 
 API_KEY = Sys.getenv("API_KEY")
 authentication = add_headers(`Ocp-Apim-Subscription-Key` = API_KEY)
-di_r_reference/code
+
 # Activity recipient country codes
 activity_recipient_path <- paste0("https://api.iatistandard.org/datastore/activity/select?",
-                        "q=*:*&facet=true&facet.field=recipient_country_code&facet.limit=1000000&wt=json")
+  "q=*:*&facet=true&facet.field=recipient_country_code&facet.limit=1000000&wt=json")
 activity_recipient_request <- GET(url = activity_recipient_path, authentication)
 activity_recipient_response <- content(activity_recipient_request, encoding = "UTF-8")
 
@@ -24,7 +24,7 @@ activity_recipient_counts = data.frame(
 
 # Transaction recipient country codes
 transaction_recipient_path <- paste0("https://api.iatistandard.org/datastore/activity/select?",
-                           "q=*:*&facet=true&facet.field=transaction_recipient_country_code&facet.limit=1000000&wt=json")
+  "q=*:*&facet=true&facet.field=transaction_recipient_country_code&facet.limit=1000000&wt=json")
 transaction_recipient_request <- GET(url = transaction_recipient_path, authentication)
 transaction_recipient_response <- content(transaction_recipient_request, encoding = "UTF-8")
 
